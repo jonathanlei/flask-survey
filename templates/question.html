@@ -3,9 +3,10 @@
 
   <h1>{{ question.question }}</h1>
 
-  <form action="/answer/{{number}}" method="POST">
+  <form action="/{{survey_name}}/answer/{{number}}" method="POST">
 
       <!-- you should have one item like this for every choice -->
+      
       {% for choice in question.choices%}
       <p>
         <input
@@ -16,6 +17,9 @@
         {{choice}}
       </p>
       {% endfor%}
+      {% if question.allow_text%}
+        <textarea name="text_answer" id="text_answer" cols="30" rows="3"> </textarea>
+      {% endif%}
     <button>Continue</button>
   </form>
 

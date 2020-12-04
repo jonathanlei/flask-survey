@@ -1,0 +1,17 @@
+{% extends "base.html"%}
+{% block content%}
+<h2>Select Your Survey!</h2>
+
+
+<form action="/start" method="POST">
+    <select name="survey_name" id="survey_name">
+        {% for survey_name in surveys_dict.keys()%}
+        <option value="{{survey_name}}">{{survey_name}}</option>
+        {% endfor %}
+    </select>
+    <button>Start!</button>
+</form>
+    
+
+
+{% endblock %}
